@@ -1,0 +1,178 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=7,IE=9" />
+    <meta name="viewport" content="initial-scale=1, maximum-scale=1,user-scalable=no" />
+    <title>TOC</title>
+    <!--<link rel="stylesheet" type="text/css" href="//js.arcgis.com/3.7/js/dojo/dijit/themes/claro/claro.css">
+    <link rel="stylesheet" type="text/css" href="//js.arcgis.com/3.7/js/esri/css/esri.css" />
+    <link rel="stylesheet" type="text/css" href="../src/agsjs/css/agsjs.css" />-->
+    <link rel="stylesheet" type="text/css" href="//js.arcgis.com/3.7/js/dojo/dijit/themes/claro/claro.css">
+    <link rel="stylesheet" type="text/css" href="//js.arcgis.com/3.7/js/esri/css/esri.css" />
+    <link rel="stylesheet" type="text/css" href="../src/agsjs/css/agsjs.css" />
+    <link href="src/agsjs/css/agsjs.css" rel="stylesheet" />
+    <style>
+        html, body {
+            height: 98%;
+            width: 98%;
+            margin: 0;
+            padding: 5px;
+            font-family: helvetica, arial, sans-serif;
+            font-size: 90%;
+        }
+
+        #leftPane {
+            width: 280px;
+            overflow: auto
+        }
+
+        /* this line hide layers when out of scale for the inline TOC */
+        .agsjsTOCOutOfScale {
+            /*  display: none;*/
+        }
+    </style>
+    <script type="text/javascript">
+        // helpful for understanding dojoConfig.packages vs. dojoConfig.paths:
+        // http://www.sitepen.com/blog/2013/06/20/dojo-faq-what-is-the-difference-packages-vs-paths-vs-aliases/
+        var dojoConfig = {
+            paths: {
+                //if you want to host on your own server, download and put in folders then use path like:
+                agsjs: location.pathname.replace(/\/[^/]+$/, '') + '/../src/agsjs'
+            }
+        };
+    </script>
+    <script src="https://js.arcgis.com/3.32/"></script>
+
+    <script type="text/javascript">
+        var map, toc, dynaLayer1, dynaLayer2, dynaLayer3, featLayer1;
+
+        require(["dojo/_base/connect",
+            "dojo/dom", "dojo/parser", "dojo/on", "dojo/_base/Color",
+            "esri/map",
+            "esri/geometry/Extent",
+            "esri/layers/FeatureLayer",
+            "esri/layers/ArcGISTiledMapServiceLayer",
+            "esri/layers/ArcGISDynamicMapServiceLayer",
+            "esri/symbols/SimpleFillSymbol",
+            "esri/renderers/ClassBreaksRenderer",
+            "agsjs/dijit/TOC",
+            "dijit/layout/BorderContainer",
+            "dijit/layout/ContentPane",
+            "dojo/fx", "dojo/domReady!"], function (connect, dom, parser, on, Color,
+                Map, Extent, FeatureLayer, ArcGISTiledMapServiceLayer, ArcGISDynamicMapServiceLayer,
+                SimpleFillSymbol, ClassBreaksRenderer,
+                TOC) {
+
+            // call the parser to create the dijit layout dijits
+            parser.parse(); // note djConfig.parseOnLoad = false;
+
+            map = new Map("map", {
+                basemap: "topo",
+                center: [-85.75, 38.25],
+                zoom: 13
+            });
+
+                dynaLayer1 = new ArcGISDynamicMapServiceLayer("https://138.91.36.52/arcgis/rest/services/IndustryX0/IndustryX0/MapServer", {
+                opacity: 0.8
+                });
+
+                 featLayer1 = new FeatureLayer("http://sampleserver1.arcgisonline.com/ArcGIS/rest/services/Demographics/ESRI_Census_USA/MapServer/1", {
+                mode: FeatureLayer.MODE_SNAPSHOT,
+                outFields: ["POP07_SQMI"]
+              });
+              featLayer1.setDefinitionExpression("STCOFIPS='21111'"); //Louisville, KY
+             
+
+
+            map.on('layers-add-result', function (evt) {
+                // overwrite the default visibility of service.
+                // TOC will honor the overwritten value.
+              //  dynaLayer1.setVisibleLayers([2, 5, 8, 11]);
+              //  dynaLayer3.setVisibleLayers([0]);
+                //try {
+                toc = new TOC({
+                    map: map,
+                    layerInfos: [{
+                        layer: dynaLayer1,
+                        title: "Industry X.0"
+                    }]
+                }, 'tocDiv');
+                toc.startup();
+                toc.on('toc-node-checked', function (evt) {
+                    if (console) {
+                        console.log("TOCNodeChecked, rootLayer:"
+                            + (evt.rootLayer ? evt.rootLayer.id : 'NULL')
+                            + ", serviceLayer:" + (evt.serviceLayer ? evt.serviceLayer.id : 'NULL')
+                            + " Checked:" + evt.checked);
+                        if (evt.checked && evt.rootLayer && evt.serviceLayer) {
+                            // evt.rootLayer.setVisibleLayers([evt.serviceLayer.id])
+                        }
+                    }
+                });
+                //} catch (e) {  alert(e); }
+            });
+                map.addLayers([dynaLayer1]);
+
+
+
+            //on(dom.byId("SetVisibleLayersProgramatically"), 'click', function (evt) {
+            //    dynaLayer1.setVisibleLayers([0, 1, 2, 3, 4, 5]);
+            //      dynaLayer3.setVisibleLayers([]);
+            //});
+
+            //on(dom.byId("FindNodeByLayer"), 'click', function (evt) {
+            //    // 0 is the layerId of group "Public Safety"
+            //    toc.findTOCNode(dynaLayer1, 0).collapse();
+            //    // 	12 is the id of layer "Damage Assessment"
+            //    toc.findTOCNode(dynaLayer1, 12).hide();
+            //});
+
+            //on(dom.byId("InsertNewLayer"), 'click', function (evt) {
+            //    if (dynaLayer2 == null) {
+            //        dynaLayer2 = new ArcGISDynamicMapServiceLayer("https://138.91.36.52/arcgis/rest/services/Route_Alert/Route_Alert/MapServer", {
+            //            opacity: 0.8
+            //        });
+            //        alert(dynaLayer2);
+            //        var h = map.on('layer-add-result', function (evt) {
+            //            toc.layerInfos.splice(1, 0, {
+            //                layer: dynaLayer2,
+            //                title: "DynamicMapServiceLayer2",
+            //                // collapsed: true, // whether this root layer should be collapsed initially, default false.
+            //                slider: true, // whether to display a transparency slider.
+            //                autoToggle: false //whether to automatically collapse when turned off, and expand when turn on for groups layers. default true.
+            //            });
+            //            toc.refresh();
+            //            h.remove();
+            //            dom.byId("SetOpacity").disabled = false;
+            //        });
+            //        map.addLayer(dynaLayer2);
+
+            //    }
+            //});
+            //on(dom.byId("SetOpacity"), 'click', function (evt) {
+            //    if (dynaLayer2 != null) {
+            //        dynaLayer2.setOpacity(0.2);
+            //    }
+            //});
+        });
+
+
+
+
+
+
+    </script>
+</head>
+<body class="claro">
+    <div id="content" data-dojo-type="dijit/layout/BorderContainer" design="headline" gutters="true" style="width: 100%; height: 100%; margin: 0;">
+
+        <div data-dojo-type="dijit/layout/ContentPane" id="leftPane" region="left" splitter="true">
+            <div id="tocDiv">
+            </div>
+        </div>
+        <div id="map" data-dojo-type="dijit/layout/ContentPane" region="center">
+        </div>
+    </div>
+</body>
+</html>

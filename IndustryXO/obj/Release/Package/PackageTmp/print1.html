@@ -1,0 +1,167 @@
+﻿
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+
+    <title>Print webmap</title>
+    <link rel="stylesheet" href="https://js.arcgis.com/3.32/dijit/themes/tundra/tundra.css">
+    <link rel="stylesheet" href="https://js.arcgis.com/3.32/esri/css/esri.css" />
+    <link rel="stylesheet" href="https://ajax.googleapis.com/ajax/libs/dojo/1.10.4/dijit/themes/nihilo/nihilo.css" />
+    <link rel="stylesheet" href="https://js.arcgis.com/3.32/esri/themes/calcite/dijit/calcite.css" />
+    <link href="Print_js/gis/dijit/Print/css/Print.css" rel="stylesheet" />
+
+    <style>
+        html, body {
+            height: 100%;
+            width: 100%;
+            margin: 0;
+            padding: 0;
+        }
+
+        h3 {
+            margin: 0 0 5px 0;
+            border-bottom: 1px solid #444;
+            padding: 0 0 5px 0;
+            text-align: center;
+        }
+
+        .shadow {
+            -moz-box-shadow: 0 0 5px #888;
+            -webkit-box-shadow: 0 0 5px #888;
+            box-shadow: 0 0 5px #888;
+        }
+
+        #map {
+            margin: 0;
+            padding: 0;
+        }
+
+        #feedback {
+            background: #fff;
+            border: 2px solid #666;
+            border-radius: 5px;
+            bottom: 20px;
+            color: #666;
+            font-family: arial;
+            height: auto;
+            left: 20px;
+            margin: 5px;
+            padding: 10px;
+            position: absolute;
+            width: 300px;
+            z-index: 40;
+        }
+
+            #feedback a {
+                border-bottom: 1px solid #888;
+                color: #666;
+                text-decoration: none;
+            }
+
+                #feedback a:hover, #feedback a:active, #feedback a:visited {
+                    border: none;
+                    color: #666;
+                    text-decoration: none;
+                }
+
+        #note {
+            padding: 0 0 10px 0;
+        }
+
+        #info {
+            padding: 10px 0 0 0;
+        }
+    </style>
+
+    <script type="text/javascript">
+
+        // helpful for understanding dojoConfig.packages vs. dojoConfig.paths:
+        // http://www.sitepen.com/blog/2013/06/20/dojo-faq-what-is-the-difference-packages-vs-paths-vs-aliases/
+        var dojoConfig = {
+            //async: true,
+            packages: [
+
+                {
+                    name: "gis",
+                    location: location.pathname.replace(/[^\/]+$/, '') + "Print_js/gis"
+                }
+            ]
+        };
+
+    </script>
+
+    <script src="https://js.arcgis.com/3.32/"></script>
+    <script>
+        var map;
+        require([
+            "esri/map",
+            "esri/arcgis/utils",
+            "gis/dijit/Print",
+            "esri/tasks/PrintTemplate",
+            "esri/config",
+            "dojo/_base/array",
+            "dojo/dom",
+            "dojo/parser",
+            "dijit/layout/BorderContainer",
+            "dijit/layout/ContentPane",
+            "dojo/domReady!"
+        ], function (
+            Map,
+            arcgisUtils,
+            Print,
+            PrintTemplate,
+            esriConfig,
+            arrayUtils,
+            dom,
+            parser
+        ) {
+            parser.parse();
+            esriConfig.defaults.io.proxyUrl = "/proxy/";
+
+            map = new Map("map", {
+                basemap: "satellite",  //For full list of pre-defined basemaps, navigate to http://arcg.is/1JVo6Wd
+                center: [-122.45, 37.75], // longitude, latitude
+                // extent: initExtent,
+                zoom: 16
+            });
+
+            var printWidget = new Print({
+                printTaskURL: "https://138.91.36.52/arcgis/rest/services/Utilities/PrintingTools/GPServer/Export%20Web%20Map%20Task",    //Url from utilities
+                map: map,
+                authorText: "Accenture Devlopers Team",             //Text to be displayed on print
+                copyrightText: "Copyright © 2020 Accenture. All rights reserved.",
+                defaultTitle: "IndustryX.0 Map",                        //Default title for the print
+                defaultFormat: "PDF",                             // Default Format and you can select in many formats
+                defaultLayout: "A4 Landscape"                      // Default Format and you can select in many formats
+            }, 'printDijit');                                      // Legend to be Displayed on print
+            printWidget.startup();
+
+        });
+    </script>
+</head>
+
+<body >
+    <div data-dojo-type="dijit/layout/BorderContainer"
+         data-dojo-props="design:'headline',gutters:false"
+         style="width: 100%; height: 100%; margin: 0;">
+        <div id="map"
+             data-dojo-type="dijit/layout/ContentPane"
+             data-dojo-props="region:'center'">
+            <div id="feedback">
+                <h3>
+                    ArcGIS.com Webmap and the Print Dijit
+                </h3>
+                <div id="info">
+
+
+                    <div id="printDijit">
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
+

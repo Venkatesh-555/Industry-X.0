@@ -1,0 +1,248 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<!--
+https://go.microsoft.com/fwlink/?LinkID=208121. 
+-->
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <_PublishTargetUrl>C:\Users\venkatesha.k.s\Desktop\New folder\Builds\IndustryXO_V1</_PublishTargetUrl>
+  </PropertyGroup>
+  <ItemGroup>
+    <File Include="bin/IndustryXO.dll">
+      <publishTime>06/24/2020 18:30:13</publishTime>
+    </File>
+    <File Include="bin/IndustryXO.pdb">
+      <publishTime>06/24/2020 18:30:13</publishTime>
+    </File>
+    <File Include="bin/Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll">
+      <publishTime>09/05/2018 16:10:50</publishTime>
+    </File>
+    <File Include="bin/roslyn/csc.exe">
+      <publishTime>06/27/2016 21:50:24</publishTime>
+    </File>
+    <File Include="bin/roslyn/csc.exe.config">
+      <publishTime>06/27/2016 21:50:24</publishTime>
+    </File>
+    <File Include="bin/roslyn/csc.rsp">
+      <publishTime>06/27/2016 21:50:24</publishTime>
+    </File>
+    <File Include="bin/roslyn/csi.exe">
+      <publishTime>06/27/2016 21:50:24</publishTime>
+    </File>
+    <File Include="bin/roslyn/csi.rsp">
+      <publishTime>06/27/2016 21:50:24</publishTime>
+    </File>
+    <File Include="bin/roslyn/Microsoft.Build.Tasks.CodeAnalysis.dll">
+      <publishTime>06/27/2016 21:50:24</publishTime>
+    </File>
+    <File Include="bin/roslyn/Microsoft.CodeAnalysis.CSharp.dll">
+      <publishTime>06/27/2016 21:50:24</publishTime>
+    </File>
+    <File Include="bin/roslyn/Microsoft.CodeAnalysis.CSharp.Scripting.dll">
+      <publishTime>06/27/2016 21:50:24</publishTime>
+    </File>
+    <File Include="bin/roslyn/Microsoft.CodeAnalysis.dll">
+      <publishTime>06/27/2016 21:50:24</publishTime>
+    </File>
+    <File Include="bin/roslyn/Microsoft.CodeAnalysis.Scripting.dll">
+      <publishTime>06/27/2016 21:50:24</publishTime>
+    </File>
+    <File Include="bin/roslyn/Microsoft.CodeAnalysis.VisualBasic.dll">
+      <publishTime>06/27/2016 21:50:24</publishTime>
+    </File>
+    <File Include="bin/roslyn/Microsoft.CSharp.Core.targets">
+      <publishTime>06/27/2016 21:50:24</publishTime>
+    </File>
+    <File Include="bin/roslyn/Microsoft.DiaSymReader.Native.amd64.dll">
+      <publishTime>06/27/2016 21:50:24</publishTime>
+    </File>
+    <File Include="bin/roslyn/Microsoft.DiaSymReader.Native.x86.dll">
+      <publishTime>06/27/2016 21:50:24</publishTime>
+    </File>
+    <File Include="bin/roslyn/Microsoft.VisualBasic.Core.targets">
+      <publishTime>06/27/2016 21:50:24</publishTime>
+    </File>
+    <File Include="bin/roslyn/System.AppContext.dll">
+      <publishTime>06/27/2016 21:50:24</publishTime>
+    </File>
+    <File Include="bin/roslyn/System.Collections.Immutable.dll">
+      <publishTime>06/27/2016 21:50:24</publishTime>
+    </File>
+    <File Include="bin/roslyn/System.Diagnostics.StackTrace.dll">
+      <publishTime>06/27/2016 21:50:24</publishTime>
+    </File>
+    <File Include="bin/roslyn/System.IO.FileSystem.dll">
+      <publishTime>06/27/2016 21:50:24</publishTime>
+    </File>
+    <File Include="bin/roslyn/System.IO.FileSystem.Primitives.dll">
+      <publishTime>06/27/2016 21:50:24</publishTime>
+    </File>
+    <File Include="bin/roslyn/System.Reflection.Metadata.dll">
+      <publishTime>06/27/2016 21:50:24</publishTime>
+    </File>
+    <File Include="bin/roslyn/vbc.exe">
+      <publishTime>06/27/2016 21:50:24</publishTime>
+    </File>
+    <File Include="bin/roslyn/vbc.exe.config">
+      <publishTime>06/27/2016 21:50:24</publishTime>
+    </File>
+    <File Include="bin/roslyn/vbc.rsp">
+      <publishTime>06/27/2016 21:50:24</publishTime>
+    </File>
+    <File Include="bin/roslyn/VBCSCompiler.exe">
+      <publishTime>06/27/2016 21:50:24</publishTime>
+    </File>
+    <File Include="bin/roslyn/VBCSCompiler.exe.config">
+      <publishTime>06/27/2016 21:50:24</publishTime>
+    </File>
+    <File Include="build/agsjs/css/agsjs.css">
+      <publishTime>06/05/2020 12:31:33</publishTime>
+    </File>
+    <File Include="build/agsjs/dijit/css/TOC.css">
+      <publishTime>06/05/2020 12:31:33</publishTime>
+    </File>
+    <File Include="build/agsjs/dijit/images/googlehybrid.png">
+      <publishTime>06/05/2020 12:31:33</publishTime>
+    </File>
+    <File Include="build/agsjs/dijit/images/googleroad.png">
+      <publishTime>06/05/2020 12:31:33</publishTime>
+    </File>
+    <File Include="build/agsjs/dijit/images/googlesatellite.png">
+      <publishTime>06/05/2020 12:31:33</publishTime>
+    </File>
+    <File Include="build/agsjs/dijit/images/Thumbs.db">
+      <publishTime>06/05/2020 12:31:33</publishTime>
+    </File>
+    <File Include="build/agsjs/dijit/TOC.js">
+      <publishTime>06/05/2020 12:31:33</publishTime>
+    </File>
+    <File Include="Clusters.html">
+      <publishTime>06/18/2020 09:26:38</publishTime>
+    </File>
+    <File Include="css/bootstrap.css">
+      <publishTime>06/19/2020 15:01:24</publishTime>
+    </File>
+    <File Include="css/main.css">
+      <publishTime>06/23/2020 12:03:13</publishTime>
+    </File>
+    <File Include="Density.html">
+      <publishTime>06/19/2020 12:23:40</publishTime>
+    </File>
+    <File Include="Home.html">
+      <publishTime>06/24/2020 15:37:56</publishTime>
+    </File>
+    <File Include="img/active.png">
+      <publishTime>06/01/2020 11:44:05</publishTime>
+    </File>
+    <File Include="img/Dot_Density.png">
+      <publishTime>06/18/2020 13:49:06</publishTime>
+    </File>
+    <File Include="img/download.jpg">
+      <publishTime>05/29/2020 15:58:43</publishTime>
+    </File>
+    <File Include="img/download2.png">
+      <publishTime>05/29/2020 15:58:43</publishTime>
+    </File>
+    <File Include="img/Equipment.png">
+      <publishTime>06/01/2020 11:44:05</publishTime>
+    </File>
+    <File Include="img/google.svg">
+      <publishTime>05/29/2020 15:58:43</publishTime>
+    </File>
+    <File Include="img/green-marker.png">
+      <publishTime>06/01/2020 12:54:11</publishTime>
+    </File>
+    <File Include="img/notactive.gif">
+      <publishTime>06/01/2020 11:44:05</publishTime>
+    </File>
+    <File Include="img/PointCluster.png">
+      <publishTime>06/18/2020 13:49:06</publishTime>
+    </File>
+    <File Include="img/shortcut.ico">
+      <publishTime>06/12/2020 09:12:36</publishTime>
+    </File>
+    <File Include="js/BasemapGallery.js">
+      <publishTime>05/29/2020 18:41:47</publishTime>
+    </File>
+    <File Include="js/main.js">
+      <publishTime>06/24/2020 17:11:07</publishTime>
+    </File>
+    <File Include="js/map.js">
+      <publishTime>06/05/2020 12:41:12</publishTime>
+    </File>
+    <File Include="js/Route.js">
+      <publishTime>06/09/2020 14:53:55</publishTime>
+    </File>
+    <File Include="PointCluster.html">
+      <publishTime>06/17/2020 18:12:44</publishTime>
+    </File>
+    <File Include="Print.html">
+      <publishTime>06/22/2020 11:59:52</publishTime>
+    </File>
+    <File Include="print1.html">
+      <publishTime>06/22/2020 16:31:19</publishTime>
+    </File>
+    <File Include="Print_js/gis/dijit/Print.js">
+      <publishTime>06/22/2020 09:05:33</publishTime>
+    </File>
+    <File Include="Print_js/gis/dijit/Print/css/Print.css">
+      <publishTime>06/22/2020 09:05:33</publishTime>
+    </File>
+    <File Include="Print_js/gis/dijit/Print/images/clear.png">
+      <publishTime>06/22/2020 09:05:33</publishTime>
+    </File>
+    <File Include="Print_js/gis/dijit/Print/images/image.png">
+      <publishTime>06/22/2020 09:05:33</publishTime>
+    </File>
+    <File Include="Print_js/gis/dijit/Print/images/pdf.png">
+      <publishTime>06/22/2020 09:05:33</publishTime>
+    </File>
+    <File Include="Print_js/gis/dijit/Print/images/print.png">
+      <publishTime>06/22/2020 09:05:33</publishTime>
+    </File>
+    <File Include="Print_js/gis/dijit/Print/images/settings.png">
+      <publishTime>06/22/2020 09:05:33</publishTime>
+    </File>
+    <File Include="Print_js/gis/dijit/Print/templates/Print.html">
+      <publishTime>06/22/2020 09:05:33</publishTime>
+    </File>
+    <File Include="Print_js/gis/dijit/Print/templates/PrintResult.html">
+      <publishTime>06/22/2020 09:05:33</publishTime>
+    </File>
+    <File Include="src/agsjs/css/agsjs.css">
+      <publishTime>06/11/2020 10:33:15</publishTime>
+    </File>
+    <File Include="src/agsjs/dijit/css/TOC.css">
+      <publishTime>06/11/2020 10:33:15</publishTime>
+    </File>
+    <File Include="src/agsjs/dijit/images/googlehybrid.png">
+      <publishTime>06/11/2020 10:33:15</publishTime>
+    </File>
+    <File Include="src/agsjs/dijit/images/googleroad.png">
+      <publishTime>06/11/2020 10:33:15</publishTime>
+    </File>
+    <File Include="src/agsjs/dijit/images/googlesatellite.png">
+      <publishTime>06/11/2020 10:33:15</publishTime>
+    </File>
+    <File Include="src/agsjs/dijit/templates/tocNode.html">
+      <publishTime>06/11/2020 10:33:15</publishTime>
+    </File>
+    <File Include="src/agsjs/dijit/TOC.js">
+      <publishTime>06/11/2020 10:33:15</publishTime>
+    </File>
+    <File Include="src/clusterfeaturelayer.js">
+      <publishTime>06/17/2020 09:18:32</publishTime>
+    </File>
+    <File Include="src/ClusterLayer.js">
+      <publishTime>06/17/2020 16:30:30</publishTime>
+    </File>
+    <File Include="src/lele3p.layers.ClusterLayer.js">
+      <publishTime>06/17/2020 16:49:57</publishTime>
+    </File>
+    <File Include="TOC.html">
+      <publishTime>06/11/2020 14:00:02</publishTime>
+    </File>
+    <File Include="Web.config">
+      <publishTime>06/24/2020 18:30:13</publishTime>
+    </File>
+  </ItemGroup>
+</Project>

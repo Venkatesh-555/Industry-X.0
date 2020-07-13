@@ -1,0 +1,256 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+
+    <title>Welcome to IndustryX.0</title>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" />
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js"></script>
+
+    <link rel="stylesheet" href="https://js.arcgis.com/3.32/dijit/themes/claro/claro.css" />
+    <link rel="stylesheet" href="https://js.arcgis.com/3.32/esri/css/esri.css" />
+    <link rel="stylesheet" href="https://js.arcgis.com/3.32/esri/themes/calcite/dijit/calcite.css" />
+    <link href="Print_js/gis/dijit/Print/css/Print.css" rel="stylesheet" />
+
+    <!--<link rel="stylesheet" href="https://ajax.googleapis.com/ajax/libs/dojo/1.10.4/dijit/themes/nihilo/nihilo.css" />-->
+    <!--<link href="Print_js/gis/dijit/Print/css/Print.css" rel="stylesheet" />-->
+    <link href="src/agsjs/css/agsjs.css" rel="stylesheet" />
+
+    <link href="css/main.css" rel="stylesheet" />
+
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css" />
+
+    <!--<script type="text/javascript">
+            // helpful for understanding dojoConfig.packages vs. dojoConfig.paths:
+            // http://www.sitepen.com/blog/2013/06/20/dojo-faq-what-is-the-difference-packages-vs-paths-vs-aliases/
+            var dojoConfig = {
+                paths: {
+                    //if you want to host on your own server, download and put in folders then use path like:
+                    agsjs: location.pathname.replace(/\/[^/]+$/, '') + '/../src/agsjs'
+                }
+            };
+
+        </script>-->
+    <script type="text/javascript">
+
+        // helpful for understanding dojoConfig.packages vs. dojoConfig.paths:
+        // http://www.sitepen.com/blog/2013/06/20/dojo-faq-what-is-the-difference-packages-vs-paths-vs-aliases/
+        var dojoConfig = {
+            async: true,
+            packages: [
+
+                {
+                    name: "gis",
+                    location: location.pathname.replace(/[^\/]+$/, '') + "Print_js/gis"
+                },
+                {
+                    name: 'app',
+                    location: window.location.pathname.substring(0, window.location.pathname.lastIndexOf('/')) + '/src'
+                }
+            ],
+            paths: {
+                //if you want to host on your own server, download and put in folders then use path like:
+                agsjs: location.pathname.replace(/\/[^/]+$/, '') + '/../src/agsjs'
+            }
+        };
+
+    </script>
+
+    <script src="https://js.arcgis.com/3.32/"></script>
+
+
+    <script src="js/main.js"></script>
+
+
+</head>
+<body>
+    <form id="form1" runat="server">
+
+        <div id="myGroup">
+            <p style="text-align: center; font-weight: bold; font-size: 18px;">Industry X.0</p>
+            <hr />
+            <div id="menusection">
+                <a href="#" class="iconic" data-toggle="collapse" data-target="#menu1"><i style="font-size: 18px" title="Legend" class="fa fa-th-list text-dark"></i></a>
+                <a href="#" class="iconic" data-toggle="collapse" data-target="#menu2"><i style="font-size: 18px" title="Table of Content" class="fas fa-layer-group text-dark"></i></a>
+                <a href="#" class="iconic" data-toggle="collapse" data-target="#menu3"><i style="font-size: 18px" title="Basemap Gallery" class="fas fa-th-large text-dark"></i></a>
+                <a href="#" class="iconic" data-toggle="collapse" data-target="#menu4"><i style="font-size: 18px" title="Info Summary" class="fas fa-map-marker-alt text-dark"></i></a>
+                <a href="#" class="iconic" data-toggle="collapse" data-target="#menu5"><i style="font-size: 18px" title="Bookmarks" class="fas fa-bookmark text-dark"></i></a>
+                <a href="#" class="iconic" data-toggle="collapse" data-target="#menu6"><i style="font-size: 18px" title="Google Streetview" class="fas fa-cubes text-dark"></i></a>
+                <a href="#" class="iconic" data-toggle="collapse" data-target="#menu7"><i style="font-size: 18px" title="3D Model" class="fas fa-shapes	text-dark"></i></a>
+                <a href="#" class="iconic" data-toggle="collapse" data-target="#menu8"><i style="font-size: 18px" title="Route Analysis" class="fas fa-globe text-dark"></i></a>
+                <a href="#" class="iconic" data-toggle="collapse" data-target="#menu9"><i style="font-size: 18px" title="Heatmap Analysis" class="fas fa-fire text-dark"></i></a>
+                <a href="#" class="iconic" data-toggle="collapse" data-target="#menu10"><i style="font-size: 18px" title="Advanced Analysis" class="fas fa-seedling	text-dark"></i></a>
+                <a href="#" class="iconic" data-toggle="collapse" data-target="#menu11"><i style="font-size: 18px" title="Print" class="fas fa-print text-dark"></i></a>
+
+            </div>
+            <div id="contentsection">
+                <div class="collapse indent" id="menu1">
+
+                    <div>
+                        <div id="legendDiv"></div>
+                    </div>
+                </div>
+                <div class="collapse indent" id="menu2" style="padding-left:10px!important">
+                    <!--TOC- IndustryXO <br /> <hr />-->
+                    <!--<span id="layer_list"></span>-->
+                    <div id="tocDiv"></div>
+
+
+                </div>
+                <div class="collapse indent" id="menu3">
+                    <div id="basemapGallery"></div>
+                </div>
+                <div class="collapse" id="menu4">
+                    <img src="img/Equipment.png" id="equipmentClick" />
+                    <b style="font-size: 16px">Equipment</b>
+                    <label style="margin-left: 30px; font-size: 16px; font-weight: bold" id="equipmentCount"></label>
+                </div>
+
+                <div class="collapse" id="menu5">
+
+                    <div id="bookmarks" style="height: 500px; width: 353px"></div>
+
+                </div>
+
+                <div class="collapse" id="menu6">
+                    <div id="pano" style="height: 500px; width: 353px"></div>
+
+                </div>
+                <div class="collapse" id="menu7">
+                    <br />
+                    <a href="http://www.dtrvglass.com/test" style="margin-left: 45px; color:blue">
+                        <b>Click to View in App (Mobile Only)</b>
+                    </a>
+                    <br />
+                    <iframe style="height: 500px; width: 353px;" id="line-chartcanvas1" src="https://138.91.36.52/3dModel/"></iframe>
+
+                </div>
+                <div class="collapse" id="menu8">
+                    <br />
+                    <button type="button" style="margin-left:50px; font-weight:bold" class="btn btn-success" id="AddRoute">Add Route Nodes</button>&nbsp;&nbsp;&nbsp;
+                    <button type="button" style="font-weight:bold" class="btn btn-success" id="SolveRoute">Solve Route</button>&nbsp;&nbsp;&nbsp;
+                    <button type="button" style="font-weight:bold" class="btn btn-success" id="ClearRoute">Clear Route</button>
+                    <br />
+                    <br />
+                    <!--<div id="dir" style="height: 500px; width: 380px"></div>-->
+
+                </div>
+
+                <div class="collapse" id="menu9">
+                    <!--<div id="heatmap" style="height: 500px; width: 340px">-->
+                    <div class="blurInfo" style="margin-left:20px !important; font-size:14px; font-weight:bold">
+
+                        <label>Select Field:</label>
+                        <select class="myList">
+                            <option value="Focal">
+                                Focal
+                            </option>
+                            <option value="Magnitude" selected>
+                                Magnitude
+                            </option>
+                            <option value="Num_Deaths">
+                                Num_Deaths
+                            </option>
+                            <option value="Num_Injured">
+                                Num_Injured
+                            </option>
+                            <option value="Mill_Damages">
+                                Mill_Damages
+                            </option>
+                            <option value="Num_Houses_Dest">
+                                Num_Houses_Dest
+                            </option>
+                            <option value="Num_Houses_Dam">
+                                Num_Houses_Dam
+                            </option>
+                        </select>
+
+                        <div class="rangeslider">
+                            <p>Blur Radius : <span id="blurValue">10</span></p>
+                            <input id="blurControl" type="range" class="myslider" max=30min =0value =10step =1 />
+                        </div>
+
+                        <div class="rangeslider">
+                            <p>Max Value : <span id="maxValue">100</span></p>
+                            <input id="maxControl" type="range" class="myslider" max=500min =0value =100step =1 />
+                        </div>
+                        <div class="rangeslider">
+                            <p>Min Value : <span id="minValue">0</span></p>
+                            <input id="minControl" type="range" class="myslider" max=500min =0value =0step =1 />
+                        </div>
+                    </div>
+
+                </div>
+
+                <div class="collapse" id="menu10">
+                    <div class="stats" style="height: 330px; width: 353px">
+                        <br />
+                        <br />
+                        <img src="img/Dot_Density.png" id="dotDensity" title="Dot Density" style="height:80px; width:100px; margin-left:50px" /> &nbsp;&nbsp;&nbsp; <b>Dot Density</b><br /> <br />
+                        <br />
+
+                        <img src="img/PointCluster.png" id="pointClusters" title="Point Clusters" style="height:80px; width:100px; margin-left:50px" /> &nbsp;&nbsp;&nbsp; <b>Point Clusters</b>
+                        <br />
+                        <br />
+                        <button type="button" style="margin-left:50px; font-weight:bold" class="btn btn-warning" id="clearGraphics">Clear Graphics</button>
+                    </div>
+                    <!--<button type="button" style="margin-left:20px; font-weight:bold" class="btn btn-warning" id="dotDensity">Dot Density</button>&nbsp;&nbsp;
+        <button type="button" style="margin-left:20px; font-weight:bold" class="btn btn-warning" id="pointClusters">Point clusters</button>&nbsp;&nbsp;
+        <button type="button" style="margin-left:20px; font-weight:bold" class="btn btn-warning" id="Clusters">Clusters</button>&nbsp;&nbsp;-->
+
+                </div>
+
+                <div class="collapse" id="menu11">
+                    <div id="printDijit">
+                    </div>
+                    <!--<div id="printButton"></div>-->
+                </div>
+
+            </div>
+        </div>
+
+        <div id="map" class="map">
+            <div id="search"></div>
+            <div id="HomeButton"></div>
+
+        </div>
+        <div id="info">
+            <div id="legend"></div>
+        </div>
+
+        <script>
+            var $myGroup = $('#myGroup');
+            $myGroup.on('show.bs.collapse', '.collapse', function () {
+                $myGroup.find('.collapse.show').collapse('hide');
+            });
+        </script>
+
+
+        <!--<script>
+        var togglermenu = $('#togglermenu');
+        togglermenu.on('show', '.collapse', function () {
+            togglermenu.find('.collapse.in').collapse('hide');
+        });
+    </script>-->
+        <!--<script type="text/javascript">
+          alert("123");
+          var dojoConfig = {
+              packages: [{
+                  name: "myWidgets",
+                  location: location.pathname.replace(/\/[^/]+$/, '') + '/js'
+              }],
+              paths: {
+                  extras: location.pathname.replace(/\/[^/]+$/, "") + "/extras"
+              }
+
+          }
+    </script>-->
+    </form>
+
+    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAt7rCfNJLiMZiEVzDDlBAL4rpQVdBEVUw&callback=initialize" async defer></script>
+</body>
+</html>
